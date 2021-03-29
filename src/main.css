@@ -86,4 +86,6 @@
 #text {
   color: #fff;
   font-size: 6rem;
+  font-weight: bold;
+  font-family: monospace;
 }
