@@ -33,7 +33,7 @@ const generator = () => {
 
   color = hex(r) + hex(g) + hex(b);
 
-  docStyle.backgroundColor = '#' + color;
+  docStyle.backgroundImage = `linear-gradient(#${color}, #${color})`;
   span.textContent = '#' + color.toUpperCase();
 };
 
@@ -47,7 +47,11 @@ let clicSearch = document.addEventListener('click', async () => {
     .then(
       (data) =>
         (imageUrl =
-          data.response.items[0].variations.jpgFixedHeightExtraLarge.url)
+          data.response.items[Math.floor(Math.random() * 100)].variations
+            .jpgFixedHeightExtraLarge.url)
     )
-    .then(() => (docStyle.backgroundImage = `url('${imageUrl}')`));
+    .then(
+      () =>
+        (docStyle.backgroundImage = `linear-gradient(#${color}55, #${color}55), url('${imageUrl}')`)
+    );
 });
