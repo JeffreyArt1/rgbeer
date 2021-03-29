@@ -1,0 +1,89 @@
+.container {
+  position: absolute;
+  width: 98%;
+  height: 98%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+.picker {
+  background-color: rgb(241, 241, 241);
+
+  border-radius: 1rem;
+
+  box-shadow: 0.2rem 0.3rem 2.5rem rgba(0, 0, 0, 0.438);
+
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+
+  display: grid;
+
+  grid-template-rows: 4fr 1fr;
+}
+
+.bar {
+  grid-row: 2 / 3;
+  grid-column: 1 / 5;
+  background-color: rgba(0, 0, 0, 0.096);
+
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.like,
+.dislike {
+  grid-row: 1 / 2;
+  font-size: 1.5rem;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.like:hover,
+.dislike:hover {
+  background-color: rgba(0, 0, 0, 0.116);
+}
+
+.like {
+  grid-column: 1 / 2;
+
+  border-bottom-left-radius: inherit;
+}
+
+.dislike {
+  grid-column: 2 / 3;
+  border-bottom-right-radius: inherit;
+}
+
+.selecta {
+  border-top-left-radius: 0.85rem;
+  border-top-right-radius: 0.85rem;
+
+  background-color: rgb(15, 207, 47);
+
+  grid-column: 1 / 5;
+
+  margin: 0.4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#body {
+  background-color: lightslategray;
+}
+
+#text {
+  color: #fff;
+  font-size: 6rem;
+}
