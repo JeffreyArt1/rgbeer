@@ -9,6 +9,7 @@ let hex = (number) => {
 
 let color = '';
 let imageUrl = '';
+let itemAmt = 25;
 
 let r = 0;
 let g = 0;
@@ -41,13 +42,13 @@ let docEventListener = document.addEventListener('mousemove', generator);
 
 let clicSearch = document.addEventListener('click', async () => {
   fetch(
-    `https://www.stocksy.com/search/query?sort=relevance&type=static&page=1&pageSize=100&filters=%7B"colorHex"%3A"${color}"%2C"text"%3A"*"%7D&null=`
+    `https://www.stocksy.com/search/query?sort=relevance&type=static&page=1&pageSize=${itemAmt.toString()}&filters=%7B"colorHex"%3A"${color}"%2C"text"%3A"*"%7D&null=`
   )
     .then((resp) => resp.json())
     .then(
       (data) =>
         (imageUrl =
-          data.response.items[Math.floor(Math.random() * 100)].variations
+          data.response.items[Math.floor(Math.random() * itemAmt)].variations
             .jpgFixedHeightExtraLarge.url)
     )
     .then(
