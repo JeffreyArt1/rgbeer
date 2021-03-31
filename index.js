@@ -5,6 +5,7 @@ const fs = require('fs');
 const PORT = 3000;
 const OK = 200;
 const NOT_FOUND = 404;
+const INTERNAL_SERVER_ERR = 500;
 
 const requestListener = function (req, res) {
   const filepath = './src' + (req.url == '/' ? '/index.html' : req.url);
@@ -19,13 +20,12 @@ const requestListener = function (req, res) {
 
   let content = mime[fileExtension];
 
-  console.log(filepath);
-  console.log(content);
-
   fs.readFile(filepath, (err, data) => {
-    if (err) console.log(err.code == 'ENOENT' ? NOT_FOUND : 500);
+    let MSG = OK;
+    if (err) MSG = err.code == 'ENOENT' ? NOT_FOUND : INTERNAL_SERVER_ERR;
     res.writeHead(OK, { 'Content-Type': content });
     res.end(data, 'utf-8');
+    console.log(MSG, '-', filepath);
   });
 };
 
