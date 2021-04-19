@@ -1,3 +1,3 @@
-# Koke
+# RGBeer
 
-ko ke
+A nice project made with node.js, just for fun
